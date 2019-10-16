@@ -34,7 +34,12 @@ function hello () {
   // if you want you can declare a string variable first
   // or in this case you can just return the string directly
   // with something like "return 'Hello!'"
+  // return 'Hello!';
+  return 'Hello!';
 }
+//let h = hello(); 
+//h 
+
 
 // Problem 2
 // Improve your initial function by accepting a parameter
@@ -51,7 +56,12 @@ function greeting(name) {
   // say goodbye, I might write
   // let parting = "Goodbye, " + name + ".";
   // (but of course, I actually want to say hello.)
+  let output = 'Hello, ' + name + '!';
+  return output;
 }
+//console.log(greeting('Tony'));
+
+
 
 // Problem 3
 // write a function that takes three parameters and returns an array
@@ -66,8 +76,10 @@ function greeting(name) {
 function returnArray (first, second, third) {
   // you can define the array using "new Array ()" or just "[ , , ]"
   // don't forget to return it
+  let newArray = [first, second, third,]; 
+  return newArray;
 }
-
+//console.log (returnArray ("tim", "hortons", "donut"))
 
 // Problem 4
 // write a function that, when passed a single argument (an array of 3 or more elements)
@@ -87,8 +99,11 @@ function splitArray (thisArray) {
   // array[0]
   // array[1]
   // etc.
-
+//let splitArray = ["Tony", " Yi", "student"], 
+  let splitArray = thisArray [0] + ' ' + thisArray [1] + ' was a ' + thisArray [2] + '.';
+  return splitArray; 
 }
+//console.log (splitArray (["tim", "horton", "donut"]))
 
 // Problem 5
 // A. Write a simple function that takes two arguments.  Subtact the second number from the first.
@@ -101,7 +116,10 @@ function splitArray (thisArray) {
  */
 function subtract(number1, number2) {
   // subtract number2 from number1, and return the result.
+  let result = number1 - number2; 
+  return result; 
 }
+console.log  ( subtract(-2, 1) ) 
 
 
 //B. Write a slightly more complex number that only performs the subtraction after testing to be
@@ -112,7 +130,11 @@ function carefulSubtract (first, second) {
   // test to be sure that both first and second are numbers.
   // if so, return the result. Otherwise, return the string
   // "I can only subtract numbers."
-
+  if (isNaN (first) || isNaN (second)) {
+    return 'I can only subtract numbers.';
+  } else {
+    return first - second;
+  } 
 }
 
 
@@ -128,9 +150,21 @@ function carefulSubtract (first, second) {
  * @param {} unknown
  * @returns {} a meessage about unknown, or the square of unknown if it is a number
  */
-function typeTester (unknown) {
+function typeTester (UNKNOWN) {
   // use an if/else construction, a switch/case , or any other branching logic. Remember to
   // return a value. 
+  if (typeof UNKNOWN === 'string') {
+    return UNKNOWN + ' yay!'; 
+  }
+  if (typeof UNKNOWN === 'number') {
+    return UNKNOWN * UNKNOWN; 
+  }
+  if (typeof UNKNOWN === 'undefined') {
+    return 'Sorry, I can\'t do anything with an undefined value.';
+  }
+  else {
+    return 'I don\'t know how to use that kind of variable.';
+  }
 }
 
 

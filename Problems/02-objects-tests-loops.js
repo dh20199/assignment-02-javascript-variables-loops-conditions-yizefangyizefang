@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 // in this exercise we explore objects (briefly), as well as
 // conditionals (if & switch) and looping (while & for)
 
@@ -13,12 +14,12 @@
 //   profession: 'novelist' }
 
 /**
- * construct an object using the three inputs FIRST, LAST, and PROF
- * @param {string} first
- * @param {string} last
- * @param {string} prof
- * @returns {object} should have the properties FIRSTNAME, LASTNAME, and PROFESSION
- */
+   * construct an object using the three inputs FIRST, LAST, and PROF
+   * @param {string} first
+   * @param {string} last
+   * @param {string} prof
+   * @returns {object} should have the properties FIRSTNAME, LASTNAME, and PROFESSION
+   */
 function returnObject (first, last, prof) {
   // it might be easiest here to declare a variable
   // var o = {};
@@ -26,7 +27,20 @@ function returnObject (first, last, prof) {
   // o.firstName = first
   // etc.
   // don't forget to return the object
+  //let a = "firstName : " + first, b = "lastName : " + last, c = "profession : " + prof; 
+  //let array = [a, b, c]
+  //return array 
+  //let firstName = first, lastName = last, profession =  prof; 
+  //let list = {firstName : first, lastName : last, profession : prof,};
+  //return list; 
+  let o = {};
+  o.firstName = first; 
+  o.lastName = last; 
+  o.profession = prof; 
+  return o;
 }
+console.log (returnObject ( "italo", "alvino", "novelist"));
+
 
 
 
@@ -48,13 +62,13 @@ function returnObject (first, last, prof) {
 
 
 /**
- * construct a sentence from the name and profession of the person represented by OBJ
- * @param {object} obj 
- * @param {string} obj.firstName - first name of the represented person
- * @param {string} obj.lastName - last name of the represented person
- * @param {string} obj.profession - profession of that person
- * @returns {string} a sentence constructed from the object parameters 
- */
+   * construct a sentence from the name and profession of the person represented by OBJ
+   * @param {object} obj 
+   * @param {string} obj.firstName - first name of the represented person
+   * @param {string} obj.lastName - last name of the represented person
+   * @param {string} obj.profession - profession of that person
+   * @returns {string} a sentence constructed from the object parameters 
+   */
 function objectToSentence (obj) {
   // remember you can refer to object properties using either of 2 methods
   // obj['propertyname']
@@ -62,9 +76,11 @@ function objectToSentence (obj) {
   // obj.propertyname
   // note the quotes in the first options
   // also note: you need to change this next line!!
-  return 'RETURNVALUE';
+  //let obj.firstName = first, obj.lastName = last, obj.profession = prof, };
+  let person = obj.firstName + ' ' + obj.lastName + ' was a ' + obj.profession + '.';
+  return person; 
 }
-
+//console.log (objectToSentence ({firstName : 'Italo', lastName : 'Calvino', profession : 'novelist'})) 
 
 // Problem 3
 // Write a function that takes an object as a parameter. If the object
@@ -84,20 +100,25 @@ function objectToSentence (obj) {
 // "Frida Kahlo was not a writer."
 
 /**
- * use OBJ.PROFESSION to construct a sentence telling us whether or not a
- * person was a writer
- * @param {} obj
- * @param {string} obj.firstName - first name of the represented person
- * @param {string} obj.lastName - last name of the represented person
- * @param {string} obj.profession - profession of that person
- * @returns {string} a sentence constructed from the object parameters
- */
+   * use OBJ.PROFESSION to construct a sentence telling us whether or not a
+   * person was a writer
+   * @param {} obj
+   * @param {string} obj.firstName - first name of the represented person
+   * @param {string} obj.lastName - last name of the represented person
+   * @param {string} obj.profession - profession of that person
+   * @returns {string} a sentence constructed from the object parameters
+   */
 function wasWriter (obj) {
   // in an if/else statement
   // it is acceptable to put the
   // "return" statement inside the conditional braces
   // so you can, e.g.,
   // if (...) {return A} else {return B}
+  if (obj.profession === 'novelist') {
+    return obj.firstName + ' ' + obj.lastName + ' was a writer.';
+  } else {
+    return obj.firstName + ' ' + obj.lastName + ' was not a writer.';
+  }
 }
 
 
@@ -110,14 +131,19 @@ function wasWriter (obj) {
 // "Oh Canada!Oh Canada!Oh Canada!Oh Canada!Oh Canada!"
 
 /**
- * repeat ASTRING ANUMBER times, and return
- * @param {string} aString
- * @param {number} aNumber
- * @returns {string}
- */
+   * repeat ASTRING ANUMBER times, and return
+   * @param {string} aString
+   * @param {number} aNumber
+   * @returns {string}
+   */
 function stringIterator (aString, aNumber) {
   // remember a basic "for" loop has this structure:
   // for (var i = 0; i< SOMETHING; i++) {...statements...  };
+  let stringOne = ''; 
+  for (let i = 0; i < aNumber; i++){
+    stringOne = stringOne + aString; 
+  }
+  return stringOne;
 }
 
 
@@ -135,14 +161,21 @@ function stringIterator (aString, aNumber) {
 // Reconciliation before Celebration(150)
 
 /**
- * return ASTRING iterated ANUMBER times on separate lines, with each line ending in a number from 
- * from 1 to ANUMBER
- * @param {string} aString
- * @param {number} aNumber
- * @returns   {string}
- */
+   * return ASTRING iterated ANUMBER times on separate lines, with each line ending in a number from 
+   * from 1 to ANUMBER
+   * @param {string} aString
+   * @param {number} aNumber
+   * @returns   {string}
+   */
 function prettyIterator (aString, aNumber) {
   // be sure to check your results on this one; it has a trick. maybe 2. 
+  let iteration = '';
+  let pretty = 0;
+  for (let i = 0; i < aNumber; i++) {
+    pretty = pretty + 1; 
+    iteration = iteration + aString + '(' + pretty + ')' + '\n' ;
+  }
+  return iteration;
 }
 
 
@@ -176,14 +209,14 @@ function prettyIterator (aString, aNumber) {
 // computeReign (willy);
 
 /**
- * 
- * @param {object} pm
- * @param  {string} pm.fullName
- * @param {string} pm.party
- * @param {number} pm.from
- * @param {number} pm.toparty
- * @returns {string} 
- */
+   * 
+   * @param {object} pm
+   * @param  {string} pm.fullName
+   * @param {string} pm.party
+   * @param {number} pm.from
+   * @param {number} pm.toparty
+   * @returns {string} 
+   */
 function computeReign (pm) {
   // declare a variable, setting it equal to the
   // length of reign. Now declare another variable,
@@ -191,13 +224,15 @@ function computeReign (pm) {
   // attributes and variables. remember that you may need to
   // "escape" the ' with \'
   // finally, makre sure you return the sentence as the value of the function
+  return pm['fullName'] + "'s reign was " + (pm.to - pm.from) + " years long.";
 }
 
 
 
 // Problem 7
 // Write a function that takes as a parameter an ARRAY OF OBJECTS
-// and returns a set of reign-computing sentences, one for each object.
+// and returns a set of reign-computing 
+// one for each object.
 
 // so, if invoked as follows:
 
@@ -233,17 +268,22 @@ function computeReign (pm) {
 //
 
 /**
- * return a group of sentences written on separate lines.
- * @param {Array} list - each element of this array should be an
- * object with properties `fullName`, `party`,`from`, and `to`
- * @returns {String} a set of sentences, each on its own line, constructed from
- *  the properties of the individual objects comprising `list`
- */
+   * return a group of sentences written on separate lines.
+   * @param {Array} list - each element of this array should be an
+   * object with properties `fullName`, `party`,`from`, and `to`
+   * @returns {String} a set of sentences, each on its own line, constructed from
+   *  the properties of the individual objects comprising `list`
+   */
 function sentences(list) {
   // Hint: "ministers" is an ARRAY of OBJECTS. The simplest way to solve this problem
   // is to use the "for...of" loop syntax to loop through the array,
   // and the object[attribute] or object.attribute reference format to access
   // the internal components of the objects.
+  let final = '';
+  for (let minister of list) {
+    final = final + minister.fullName + "'s reign was " + (minister.to - minister.from) + " years long.\n";
+  }
+  return final;
 }
 
 // DO NOT MODIFY -- FOR AUTOMATED TESTING ONLY
